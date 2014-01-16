@@ -2,9 +2,18 @@
 // USER KEY: e20b48a53479ac2634b7e25ecc9baff8
 
 function processXML(XMLstring) {
-    console.log(XMLstring);
     var parser = new DOMParser();
-    var XML = parser.parseFromString(XMLstring, "text/xml");
+    return parser.parseFromString(XMLstring, "text/xml");
+}
+
+function readPaste(pasteURL) {
+    XMLHttpRequest({
+        method: "GET",
+        url: pasteURL,
+        onload: function(response) {
+            console.log(response.responseText);
+        }
+    });
 }
 
 function main() {
@@ -14,7 +23,9 @@ function main() {
         data: "api_dev_key=0b6ec26f1d74dc65399691fcda219676&api_option=trends",
         headers: {"Content-Type": "application/x-www-form-urlencoded"},
         onload: function(response) {
-            processXML("<html>" + response.responseText + "</html>"); // avoid parsing errors
+            var XML = processXML("<html>" + response.responseText + "</html>"); // avoid parsing errors
+            var pasteURL = 'http://pastebin.com/raw.php?i=' + XML.getElementsByTagName('paste_key')[0].childNodes[0].nodeValue;
+            readPaste(pasteURL);
         }
     });
 }
