@@ -12,9 +12,9 @@ var reqs = [];
 
 // Flush request queue every 50 ms
 window.setInterval(function() {
-    while(reqs.length) {
-        GM_xmlhttpRequest(reqs.shift());
-    }
+	while(reqs.length) {
+		GM_xmlhttpRequest(reqs.shift());
+	}
 }, 50);
 
 // overwrite XHR
