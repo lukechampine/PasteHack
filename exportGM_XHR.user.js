@@ -22,5 +22,7 @@ unsafeWindow.XMLHttpRequest = function(details) {
 	reqs.push(details);
 }
 
-// remove installation message
-document.getElementById('install').setAttribute('style','display:none');
+// run main()
+var script = document.createElement('script');
+script.textContent = 'main();';
+document.body.appendChild(script);
