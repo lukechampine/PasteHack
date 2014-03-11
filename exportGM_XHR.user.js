@@ -2,8 +2,8 @@
 // @name        ExportGM_XHR
 // @namespace   github.com/lukechampine
 // @description Exports GM_xmlhttpRequest to allow cross-origin XHRs
-// @include     http://lukechampine.github.io/PasteHack/*
-// @include     https://lukechampine.github.io/PasteHack/*
+// @include     http://lukechampine.com/PasteHack/*
+// @include     https://lukechampine.com/PasteHack/*
 // @version     1.0
 // ==/UserScript==
 
